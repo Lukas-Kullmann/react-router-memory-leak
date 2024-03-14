@@ -1,0 +1,27 @@
+{
+  "name": "react-router-memory-leak",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx jest --clearCache && node --expose-gc ./node_modules/.bin/jest --runInBand src/react-router.test.js",
+    "test-with-redirect": "CI=1 npm run test -- --testNamePattern 'with redirect'",
+    "test-without-redirect": "CI=1 npm run test -- --testNamePattern 'without redirect'",
+    "postinstall": "patch-package"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/react": "^14.2.1",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "patch-package": "^8.0.0",
+    "prettier": "^3.2.5"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router": "^6.22.3"
+  }
+}

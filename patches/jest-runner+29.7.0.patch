@@ -1,0 +1,14 @@
+diff --git a/node_modules/jest-runner/build/runTest.js b/node_modules/jest-runner/build/runTest.js
+index e3367c8..34a8dac 100644
+--- a/node_modules/jest-runner/build/runTest.js
++++ b/node_modules/jest-runner/build/runTest.js
+@@ -458,5 +458,9 @@ async function runTest(
+   } else {
+     result.leaks = false;
+   }
++
++  global.gc();
++  require('node:v8').writeHeapSnapshot()
++
+   return result;
+ }
